@@ -5,14 +5,27 @@
         <h3 class="text-lg font-semibold mb-2" style="text-align: center">How are you feeling?</h3>
         <%= form.text_field :title, class: "form-control border-primary mb-1", required: true, placeholder: "Enter title..." %>
         <%= form.text_field :description, class: "form-control border-primary mb-1", required: true, placeholder: "Enter description..." %>
+
+        <%= form.label :mood, "Rate your mood between 0 and 10"%>
         <%= form.select :mood, 0..10, class: "form-control border-primary mb-1"%>
         
         <h3 class="text-lg font-semibold mb-2" style="text-align: center">Health Tracker</h3>
-        <%= form.number_field :sleep_hrs, max: 24, class: "form-control border-primary mb-1", placeholder: "Enter your sleep in hours..."%>
-        <%= form.number_field :steps, max: 24, class: "form-control border-primary mb-1", placeholder: "Enter your total steps in hours..."%>
-        <%= form.number_field :protein, class: "form-control border-primary mb-1", placeholder: "Enter your protein in grams..."%>
-        <%= form.number_field :carbs, class: "form-control border-primary mb-1", placeholder: "Enter your carb in grams..."%>
+
+        <%= form.label :sleep_hrs, "Enter your sleep in hours..."%>
+        <%= form.number_field :sleep_hrs, max: 24, class: "form-control border-primary mb-1"%>
+
+        <%= form.label :steps, "Enter your daily steps..."%>
+        <%= form.number_field :steps, max: 24, class: "form-control border-primary mb-1"%>
+
+        <%= form.label :protein, "Enter your protein in grams..."%>
+        <%= form.number_field :protein, class: "form-control border-primary mb-1"%>
+
+        <%= form.label :carbs, "Enter your carbs in grams..."%>
+        <%= form.number_field :carbs, class: "form-control border-primary mb-1"%>
+
+        <%= form.label :fats, "Enter your fat in grams..."%>
         <%= form.number_field :fats, class: "form-control border-primary mb-1", placeholder: "Enter your fat in grams..."%>
+
         <%= form.submit %>
     <% end %>
     </div>
