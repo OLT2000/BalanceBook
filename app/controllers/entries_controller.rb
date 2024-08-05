@@ -1,6 +1,10 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.where(user_id: current_user.id)
+        if user_signed_in?
+            @entries = Entry.where(user_id: current_user.id)
+        else
+            redirect_to user_session_path, alert: "You must be signed in to do that!"
+        end
     end
  
  
