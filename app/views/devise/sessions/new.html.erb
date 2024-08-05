@@ -1,0 +1,22 @@
+<% provide(:title, 'Sign In') %>
+<div id="logreg-forms">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Sign In</h1>
+
+  <%= f.email_field :email, class: "form-control border-primary mb-1", required: true, placeholder: "Email Address", autocomplete: true, autofocus: true %>
+  <%= f.password_field :password, class: "form-control border-primary mb-1", required: true, placeholder: "Password", autocomplete: true %> 
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: "btn btn-success form-control mt-1" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
+</div>
+

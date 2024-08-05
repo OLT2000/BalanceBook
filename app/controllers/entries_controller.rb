@@ -1,16 +1,26 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all
+        if user_signed_in?
+            @entries = Entry.where(user_id: current_user.id)
+        else
+            redirect_to user_session_path, alert: "You must be signed in to do that!"
+        end
     end
  
  
     def new
-        @entry = Entry.new()
+        if user_signed_in?
+            @entry = Entry.new()
+        else
+            redirect_to root_path, alert: "You must be signed in to do that!"
+        end
     end
  
     def create
-        puts entry_params
-        @entry = Entry.new(entry_params)
+        new_params = entry_params
+        new_params["user_id"] = current_user.id
+        puts new_params
+        @entry = Entry.new(new_params)
         if @entry.save
             redirect_to root_url
         else
