@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all
+        @entries = Entry.where(user_id: current_user.id)
     end
  
  
@@ -13,8 +13,10 @@ class EntriesController < ApplicationController
     end
  
     def create
-        
-        @entry = Entry.new(entry_params, user_id: current_user.id)
+        new_params = entry_params
+        new_params["user_id"] = current_user.id
+        puts new_params
+        @entry = Entry.new(new_params)
         if @entry.save
             redirect_to root_url
         else
