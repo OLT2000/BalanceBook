@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_120331) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "mood", limit: 2
-    t.integer "sleep", limit: 2
+    t.decimal "sleep_hrs", precision: 3, scale: 1
     t.integer "steps", default: 0
     t.integer "protein", default: 0
     t.integer "carbs", default: 0
