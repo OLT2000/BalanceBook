@@ -5,12 +5,16 @@ class EntriesController < ApplicationController
  
  
     def new
-        @entry = Entry.new()
+        if user_signed_in?
+            @entry = Entry.new()
+        else
+            redirect_to root_path, alert: "You must be signed in to do that!"
+        end
     end
  
     def create
-        puts entry_params
-        @entry = Entry.new(entry_params)
+        
+        @entry = Entry.new(entry_params, user_id: current_user.id)
         if @entry.save
             redirect_to root_url
         else

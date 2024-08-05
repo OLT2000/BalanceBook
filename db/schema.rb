@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_05_132801) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_05_135813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_132801) do
     t.integer "carbs", default: 0
     t.integer "fats", default: 0
     t.virtual "calories_in", type: :integer, as: "(((4 * protein) + (4 * carbs)) + (9 * fats))", stored: true
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_132801) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "entries", "users"
 end
