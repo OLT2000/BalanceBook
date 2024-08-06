@@ -17,7 +17,7 @@ services:
         fromDatabase:
           name: BalanceBookDB
           property: connectionString
-      - key: 0a412ae479f91970f2dc1748ac5792f4
+      - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
