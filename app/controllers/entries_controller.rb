@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
     def create
         new_params = entry_params
         new_params["user_id"] = current_user.id
-        puts new_params
+        new_params["entry_date"] = @current_date
         @entry = Entry.new(new_params)
         if @entry.save
             redirect_to root_url
@@ -42,7 +42,7 @@ class EntriesController < ApplicationController
 
     def destroy
         Entry.find(params[:id]).destroy
-        render root_url
+        render root_path
     end
  
     private
