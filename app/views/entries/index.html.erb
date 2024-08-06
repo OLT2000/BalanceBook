@@ -1,22 +1,20 @@
-<h1>All Entries</h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <%= "<" %>
+                <%= button_to "<", shift_date_left_path(date: @current_date) %>
             </ul>
             <ul class="navbar-nav mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
                 <li class="nav-item">
                     <% if @current_date == Date.today %>
                         <%= "Today" %>
                     <% else %>
-                        <%= @current_page %>
+                        <%= @current_date %>
                     <% end %>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <%= ">" %>
+                <%= button_to ">", shift_date_right_path(date: @current_date) %>
             </ul>
         </div>
     </div>
