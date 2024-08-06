@@ -4,16 +4,24 @@
   <h1 class="h3 mb-1 font-weight-normal" style="text-align: center">Create Account</h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-sigin") do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.label :first_name, "First Name" %>
     <%= f.text_field :first_name, autofocus: true, class: "form-control border-primary mb-2", required: true, placeholder: "First Name" %>
+    
+    <%= f.label :last_name, "Last Name" %>
     <%= f.text_field :last_name, class: "form-control border-primary mb-2", required: true, placeholder: "Last Name" %>
 
+    <%= f.label :email, "Enter you email address..." %>
     <%= f.email_field :email, class: "form-control border-primary mb-2", autocomplete: "email", placeholder: "Email Address"%>
 
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em><%= f.label :password, "Password" %> (<%= @minimum_password_length %> characters minimum)</em>
+    <% else %>
+      <%= f.label :password, "Password" %>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control border-primary mb-2", placeholder: "Password" %>
 
+    <%= f.label :password_confirmation, "Password Confirmation" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control border-primary mb-2", placeholder: "Password Confirmation" %>
 
     <div class="actions">
