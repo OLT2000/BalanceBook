@@ -6,13 +6,13 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <%= f.label :first_name, "First Name" %>
-    <%= f.text_field :first_name, autofocus: true, class: "form-control border-primary mb-2", required: true, placeholder: "First Name" %>
+    <%= f.text_field :first_name, class: "form-control border-primary mb-2", placeholder: "First Name" %>
     
     <%= f.label :last_name, "Last Name" %>
-    <%= f.text_field :last_name, class: "form-control border-primary mb-2", required: true, placeholder: "Last Name" %>
+    <%= f.text_field :last_name, class: "form-control border-primary mb-2", placeholder: "Last Name" %>
 
     <%= f.label :email, "Enter you email address..." %>
-    <%= f.email_field :email, class: "form-control border-primary mb-2", autocomplete: "email", placeholder: "Email Address"%>
+    <%= f.email_field :email, class: "form-control border-primary mb-2", placeholder: "Email Address"%>
 
     <% if @minimum_password_length %>
       <em><%= f.label :password, "Password" %> (<%= @minimum_password_length %> characters minimum)</em>

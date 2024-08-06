@@ -120,11 +120,9 @@ GEM
     cucumber-html-formatter (21.6.0)
       cucumber-messages (> 19, < 25)
     cucumber-messages (22.0.0)
-    cucumber-rails (3.0.0)
-      capybara (>= 3.11, < 4)
-      cucumber (>= 5, < 10)
-      railties (>= 5.2, < 8)
     cucumber-tag-expressions (6.1.0)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.2.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
@@ -143,11 +141,6 @@ GEM
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
-    factory_bot (6.4.6)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.3)
-      factory_bot (~> 6.4)
-      railties (>= 5.0.0)
     ffi (1.17.0)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
@@ -333,12 +326,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   capybara
-  cucumber-rails
-  database_cleaner-active_record
+  cucumber
+  database_cleaner
   debug
   devise
   error_highlight (>= 0.4.0)
-  factory_bot_rails
   importmap-rails
   jbuilder
   pg (~> 1.1)
