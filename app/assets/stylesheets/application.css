@@ -15,6 +15,27 @@
  */
  @import "bootstrap";
 
+ body {
+    background-color: #5EAB84;
+  }
+
+ .navbar-logo img{
+    width: 3rem;
+    margin-right: 6px;
+}
+
+.navbar {
+    background-color: #2A2C28;
+}
+
+.nav-link {
+    color: #C9E465;
+}
+
+.nav-item {
+    color: #C9E465;
+}
+
 /* sign in FORM */
 #logreg-forms{
     width:412px;

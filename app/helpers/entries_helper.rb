@@ -1,5 +1,5 @@
 module EntriesHelper
-    def entry_form(entry, is_index)
+    def entry_form(entry)
         form_with(model: entry) do |form|
             concat content_tag(:h3, "How are you feeling?", class: "text-lg font-semibold mb-2", style: "text-align: center")
             concat form.text_field(:title, class: "form-control border-primary mb-1", required: true, placeholder: "Enter title...")
