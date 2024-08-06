@@ -1,0 +1,23 @@
+databases:
+  - name: BalanceBook
+    databaseName: balancebookdb
+    user: balancebookdb_user
+    plan: free
+
+services:
+  - type: web
+    name: BalanceBook
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: postgresql://balancebookdb_user:4SkCYwwsorK8Ujn7UIO8kuW0NqnRU7nF@dpg-cqovnuo8fa8c73c3jvng-a.frankfurt-postgres.render.com/balancebookdb
+        fromDatabase:
+          name: mysite
+          property: connectionString
+      - key: 0a412ae479f91970f2dc1748ac5792f4
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
