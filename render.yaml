@@ -15,7 +15,7 @@ services:
     envVars:
       - key: postgresql://balancebookdb_user:4SkCYwwsorK8Ujn7UIO8kuW0NqnRU7nF@dpg-cqovnuo8fa8c73c3jvng-a.frankfurt-postgres.render.com/balancebookdb
         fromDatabase:
-          name: mysite
+          name: BalanceBookDB
           property: connectionString
       - key: 0a412ae479f91970f2dc1748ac5792f4
         sync: false
