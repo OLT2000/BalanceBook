@@ -13,14 +13,19 @@
 
     <%= f.label :email, "Enter you email address..." %>
     <%= f.email_field :email, class: "form-control border-primary mb-2", placeholder: "Email Address"%>
-
-    <% if @minimum_password_length %>
-      <em><%= f.label :password, "Password" %> (<%= @minimum_password_length %> characters minimum)</em>
+    </br>
+    <% if true %>
+      <em><%= f.label :password, "Password" %> (<%= 8 %> characters minimum)</em>
     <% else %>
       <%= f.label :password, "Password" %>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control border-primary mb-2", placeholder: "Password" %>
-
+    <ul>
+      <li>Must contain at least 1 uppercase character</li>
+      <li>Must contain at least 1 numerical character</li>
+      <li>Must contain at least 1 lowercase character</li>
+      <li>Must contain at least 1 special character</li>
+    </ul>
     <%= f.label :password_confirmation, "Password Confirmation" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control border-primary mb-2", placeholder: "Password Confirmation" %>
 
