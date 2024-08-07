@@ -30,10 +30,10 @@ RSpec.describe User, type: :model do
             expect(user).not_to be_valid
         end
 
-        # it 'When password is not present' do
-        #     user.password = nil
-        #     expect(user).not_to be_valid
-        # end
+        it 'When password is not present' do
+            user.password = nil
+            expect(user).not_to be_valid
+        end
 
         it 'When password is not long enough' do
             user.password = "Pas1?"
