@@ -5,6 +5,10 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
+    normalizes :email, with: -> email { email.strip.downcase }
+    normalizes :password, with: -> password { password.strip }
+    normalizes :password_confirmation, with: -> password_confirmation { password_confirmation.strip }
+
     validate :password_contains_number
     validate :password_contains_lowercase
     validate :password_contains_uppercase
@@ -16,6 +20,7 @@ class User < ApplicationRecord
     validate :last_name_present
 
     validates :email, format: { with: Devise.email_regexp }
+
 
 
     private
