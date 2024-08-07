@@ -29,7 +29,7 @@ class User < ApplicationRecord
     end
 
     def password_length
-        if password.length < 8
+        if password.blank? || password.length < 8
           errors.add :password, "must be at least 8 characters long."
           false
         else
