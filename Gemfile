@@ -76,4 +76,9 @@ group :test do
   gem "rspec"
   gem "webdrivers"
   gem "database_cleaner"
+  gem "factory_bot_rails"
+  gem "rspec-rails"
+  gem 'rails-controller-testing'
+  gem 'simplecov', require: false
+  gem 'rspec-html', '~> 0.1.0'
 end

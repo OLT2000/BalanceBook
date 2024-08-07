@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_075508) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_07_092834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_075508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "mood", limit: 2
-    t.decimal "sleep_hrs", precision: 3, scale: 1
+    t.float "sleep_hrs", default: 0.0
     t.integer "steps", default: 0
     t.integer "protein", default: 0
     t.integer "carbs", default: 0
