@@ -1,12 +1,9 @@
 name: Run RSpec Tests
 
 on:
-  push:
-    branches:
-      - workflows
   pull_request:
     branches:
-      - workflows
+      - main
 
 jobs:
   test:
