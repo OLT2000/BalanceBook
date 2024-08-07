@@ -12,6 +12,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: yourpassword
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: --health-cmd "pg_isready -U postgres" --health-interval 10s
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -19,11 +30,16 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.1.2'  # Replace with your Ruby version
         bundler-cache: true
 
     - name: Install dependencies
       run: bundle install
+
+    - name: Set up database
+      run: |
+          cp config/database.yml.github-actions config/database.yml
+          bundle exec rails db:create
+          bundle exec rails db:migrate
 
     - name: Run RSpec tests
       run: bundle exec rspec
