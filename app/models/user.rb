@@ -21,13 +21,11 @@ class User < ApplicationRecord
 
     validates :email, format: { with: Devise.email_regexp }
 
-
-
     private
 
     def passwords_match
-      if password != password_confirmation
-        errors.add :password_confirmation, "must match password."
+      if password_confirmation.blank?
+          errors.add :password_confirmation, "can't be blank."
         return false
       end
       true
@@ -68,7 +66,7 @@ class User < ApplicationRecord
 
     def first_name_present
       if first_name.blank?
-        errors.add :first_name, "cannot be blank."
+        errors.add :first_name, "can't be blank."
         false
       else
         true
@@ -77,7 +75,7 @@ class User < ApplicationRecord
 
     def last_name_present
       if last_name.blank?
-        errors.add :last_name, "cannot be blank."
+        errors.add :last_name, "can't be blank."
         false
       else
         true
