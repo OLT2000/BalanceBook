@@ -3,7 +3,7 @@ Feature: Happy path test case when I sign up to the application
         Given I visit the page url 'https://mysite-gize.onrender.com/users/sign_up'
         And I input 'Ollie' for 'first_name' in my 'user' model
         And I input 'Thurston' for 'last_name' in my 'user' model
-        And I input 'ollienewtest1@email.com' for 'email' in my 'user' model
+        And I input 'ollienewtest2@email.com' for 'email' in my 'user' model
         And I input 'Password123?' for 'password' in my 'user' model
         And I input 'Password123?' for 'password_confirmation' in my 'user' model
         When I click the 'Create Account' button
