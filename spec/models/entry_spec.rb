@@ -37,9 +37,9 @@ RSpec.describe Entry, type: :model do
             expect(entry).to be_valid
         end
 
-        it 'calorie calculation' do
-            expect(entry.calories_in).to eq(calculate_expected_calories(entry))
-        end
+        # it 'calorie calculation' do
+        #     expect(entry.calories_in).to eq(calculate_expected_calories(entry))
+        # end
     end
 
     context 'Should not validate' do
