@@ -1,4 +1,5 @@
 Given("I visit the page url {string}") do |url_string|
+    reset_session!
     visit url_string
     sleep 1
 end
@@ -10,6 +11,10 @@ end
 
 When("I click the {string} button") do |button_text|
     click_button(button_text)
+end
+
+When("I click the link for path: {string}") do |path_str|
+    find("a.nav-link[href=\"#{path_str}\"]").click
 end
 
 And("I am given an alert: {string}") do |alert_msg|
