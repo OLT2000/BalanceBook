@@ -59,6 +59,7 @@ class EntriesController < ApplicationController
         new_params["user_id"] = current_user.id
         # new_params["entry_date"] = @current_date
         @entry = Entry.new(new_params)
+        @current_date = new_params['entry_date']
         if @entry.save
             redirect_to root_url(date: @current_date)
         else
