@@ -36,6 +36,37 @@
     color: #C9E465;
 }
 
+/* Display Entry */
+.container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 1px;
+    width: 60%;
+    padding:  0px;
+    box-sizing: border-box;
+}
+.left, .right, .middle {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.middle {
+    grid-row: span 3; /* Make the middle column span all three rows */
+    display: flex; /* Use Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+.column-content {
+    padding: 10px;
+    text-align: center; /* Center text inside the column-content */
+}
+.figure {
+    width: 100%; /* Make figure take up full width of the middle column */
+    max-width: 400px; /* Set a max-width for the chart */
+}
+
+
 /* sign in FORM */
 #logreg-forms{
     width:412px;
