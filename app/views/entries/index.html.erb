@@ -78,7 +78,10 @@
     </br>
     <p style="text-align: center; font-size: 20px;">
         <%= @entry.description %>
-    </p>    
+    </p>
+    </div>
+    <div class='card'>
+        <%= button_to 'Generate Summary', submit_api_call_path(entry: @entry), method: :post, class: "button"%>
     </div>
     <div class="card buttons-card">
         <%= button_to 'Delete Entry', entry_path(@entry), method: :delete, class: "button btn-25" %>

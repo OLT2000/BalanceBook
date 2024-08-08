@@ -1,6 +1,37 @@
 class EntriesController < ApplicationController
     before_action :set_current_date
 
+    def submit_api_call
+        # user_input = params[:user_input]
+        puts "SUBMITTING CALL: #{params}"
+        selected_entry = Entry.find_by(id: params[:entry])
+
+        protein_ratio = ((4.0 * selected_entry.protein) / selected_entry.calories_in).round(2) * 100
+        carbs_ratio = ((4.0 * selected_entry.carbs) / selected_entry.calories_in).round(2) * 100
+        fats_ratio = ((9.0 * selected_entry.fats) / selected_entry.calories_in).round(2) * 100
+
+        llm_prompt = %(
+            Given the following statistics, give an overview of my lifestyle choices in under 100 words.
+
+            Today I consumed #{selected_entry.protein} grams of protein, #{selected_entry.carbs} grams of carbs, and #{selected_entry.fats} grams of fats. 
+            This was a ratio of #{protein_ratio}:#{carbs_ratio}:#{fats_ratio} as a contribution to my total calorie intake of #{selected_entry.calories_in}.
+
+            During the day I took #{selected_entry.steps} steps, which burned #{0.05 * selected_entry.steps} calories.
+            Last night I slept #{selected_entry.sleep_hrs} hours.
+
+            Overall, I would rate my mood for today as #{selected_entry.mood} out of 10.
+        )
+
+        @response = call_openai_api(llm_prompt)
+
+        puts "Response: #{@response}"
+
+        # flash[:response] = @response
+        
+        
+        redirect_to root_path
+    end
+
     def index
         if user_signed_in?
             @entry = Entry.find_by(user_id: current_user.id, entry_date: @current_date)
@@ -84,5 +115,29 @@ class EntriesController < ApplicationController
 
     def update_entry_params
         params.require(:entry).permit(:description, :mood, :sleep_hrs, :steps, :protein, :carbs, :fats)
+    end
+
+    def call_openai_api(prompt)
+        response = HTTP.auth("Bearer #{ENV['OPENAI_API_KEY']}").post(
+            "https://api.openai.com/v1/chat/completions",
+            json: {
+                model: 'gpt-4o',
+                messages: [
+                    
+                    {
+                        role: "system",
+                        content: "You are a health, nutrition and lifestyle expert. Given some statistics about a persons lifestyle, you are to provide a brief summary of their choices, including what is good. Wherever possible, please suggest improvements that they could make."
+                    },
+                    {
+                        role: "user",
+                        content: prompt,
+                    }
+                ],
+            }
+        )
+        
+        puts response
+        content = response.parse["choices"][0]["message"]["content"]
+        return content.to_json
     end
 end

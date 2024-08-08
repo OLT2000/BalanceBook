@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   post 'shift_date_left', to: 'entries#shift_date_left'
   post 'shift_date_right', to: 'entries#shift_date_right'
+  post 'submit_api_call', to: 'entries#submit_api_call'
 
 
   # Defines the root path route ("/")
