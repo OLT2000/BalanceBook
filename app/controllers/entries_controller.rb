@@ -30,7 +30,7 @@ class EntriesController < ApplicationController
         @entry = Entry.find(params[:id])
         @current_date = params[:date]
         if @entry.update(update_entry_params)
-            redirect_to root_path, notice: 'Journal entry was successfully updated.'
+            redirect_to root_path(date: @current_date), notice: 'Journal entry was successfully updated.'
         else
             render :edit
         end
