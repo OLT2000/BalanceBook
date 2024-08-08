@@ -80,8 +80,16 @@
         <%= @entry.description %>
     </p>
     </div>
-    <div class='card'>
+    <div class='api-card'>
         <%= button_to 'Generate Summary', submit_api_call_path(entry: @entry), method: :post, class: "button"%>
+        <br><br><br>
+        <% if session[:api_responses]["id"] == @entry.id.to_s %>
+            <% if !session[:api_responses]['response'].nil? %>
+                <p style="font-size: 15px;">
+                    <%= session[:api_responses]['response'] %>
+                </p>
+            <% end %>
+        <% end %>
     </div>
     <div class="card buttons-card">
         <%= button_to 'Delete Entry', entry_path(@entry), method: :delete, class: "button btn-25" %>

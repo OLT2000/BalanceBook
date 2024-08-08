@@ -118,6 +118,17 @@
     height: 7rem
 }
 
+.api-card {
+    position: relative;
+    background-color: #ffffff36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
 .button {
     position: absolute;
     padding: 10px 20px;

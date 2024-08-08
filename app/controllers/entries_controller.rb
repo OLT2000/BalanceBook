@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
     before_action :set_current_date
+    before_action :initialize_session_hash
+
 
     def submit_api_call
         # user_input = params[:user_input]
@@ -24,7 +26,9 @@ class EntriesController < ApplicationController
 
         @response = call_openai_api(llm_prompt)
 
-        puts "Response: #{@response}"
+        # Store the response in the session hash with the entry ID as the key
+        session[:api_responses] = {"id" => params[:entry], "response" => @response}
+        puts session[:api_responses]
 
         # flash[:response] = @response
         
@@ -136,8 +140,11 @@ class EntriesController < ApplicationController
             }
         )
         
-        puts response
         content = response.parse["choices"][0]["message"]["content"]
-        return content.to_json
+        return content
     end
+
+    def initialize_session_hash
+        session[:api_responses] ||= {}
+      end
 end
