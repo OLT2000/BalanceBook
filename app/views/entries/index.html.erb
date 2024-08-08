@@ -28,7 +28,7 @@
             You haven't logged an entry for <%= @current_date %>.
         </p>
         <p>
-            Create a new entry <%= link_to "here", new_entry_path %>
+            Create a new entry <%= link_to "here", new_entry_path(date: @current_date) %>
         </p>
     </div>
 <% else %>
@@ -82,6 +82,6 @@
     </div>
     <div class="card buttons-card">
         <%= button_to 'Delete Entry', entry_path(@entry), method: :delete, class: "button btn-25" %>
-        <%= button_to 'Edit Entry', edit_entry_path(@entry), method: :get, class: "button btn-75" %>
+        <%= link_to 'Edit Entry', edit_entry_path(@entry, date: @current_date), method: :get, class: "button btn-75" %>
     </div>
 <% end %>

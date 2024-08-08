@@ -3,9 +3,9 @@
 <div class="card">
     <%= form_with(model: @entry) do |form| %>
     <h3 class="text-lg font-semibold mb-2" style="text-align: center">How are you feeling?</h3>
-    
+
     <%= form.label :entry_date, "Enter the date here..."%>
-    <%= form.date_field :entry_date, class: "form-control border-primary mb-1", required: true, placeholder: @current_date %>
+    <%= form.date_field :entry_date, class: "form-control border-primary mb-1", required: true, value: @current_date %>
 
     <%= form.label :description, "How was your day?" %>
     <%= form.text_area :description, class: "form-control border-primary mb-1", required: true, placeholder: "Enter description..." %>
