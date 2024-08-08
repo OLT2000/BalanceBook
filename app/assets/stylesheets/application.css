@@ -76,7 +76,7 @@
     text-align: center;
 }
 
-.entry-container {
+.container {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: repeat(3, auto);
