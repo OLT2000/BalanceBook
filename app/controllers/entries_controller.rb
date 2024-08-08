@@ -22,13 +22,14 @@ class EntriesController < ApplicationController
 
     def edit
         @entry = Entry.find(params[:id])
+        @current_date = params[:date]
     end
 
     def update
+        puts "Params : #{params}"
         @entry = Entry.find(params[:id])
-        puts @entry
+        @current_date = params[:date]
         if @entry.update(update_entry_params)
-            puts @current_date
             redirect_to root_path, notice: 'Journal entry was successfully updated.'
         else
             render :edit
