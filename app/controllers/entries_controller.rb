@@ -3,22 +3,35 @@ class EntriesController < ApplicationController
 
     def index
         if user_signed_in?
-            puts "Index Date #{@current_date}"
-            @entries = Entry.where(user_id: current_user.id, entry_date: @current_date)
-            @nutrition_data = []
-            @entries.each do |ent|
-                puts ent.calories_in # = 56
-                nutrition = {
-                    'Protein' => (4.0 * ent.protein),
-                    'Fat' => (9.0 * ent.fats),
-                    'Carbs' => (4.0 * ent.carbs)
-                }
-                puts nutrition # = {"Protein"=>0, "Fat"=>0, "Carbs"=>0}
+            @entry = Entry.find_by(user_id: current_user.id, entry_date: @current_date)
 
-                @nutrition_data << nutrition
+            if @entry.nil?
+                @nutrition_data = {}
+            else
+                @nutrition_data = {
+                        'Protein' => (4.0 * @entry.protein),
+                        'Fat' => (9.0 * @entry.fats),
+                        'Carbs' => (4.0 * @entry.carbs)
+                }
             end
+        
         else
             redirect_to user_session_path, alert: "You must be signed in to do that!"
+        end
+    end
+
+    def edit
+        @entry = Entry.find(params[:id])
+    end
+
+    def update
+        @entry = Entry.find(params[:id])
+        puts @entry
+        if @entry.update(update_entry_params)
+            puts @current_date
+            redirect_to root_path, notice: 'Journal entry was successfully updated.'
+        else
+            render :edit
         end
     end
 
@@ -36,17 +49,17 @@ class EntriesController < ApplicationController
         if user_signed_in?
             @entry = Entry.new()
         else
-            redirect_to root_path, alert: "You must be signed in to do that!"
+            redirect_to sign_in_path, alert: "You must be signed in to do that!"
         end
     end
  
     def create
         new_params = entry_params
         new_params["user_id"] = current_user.id
-        new_params["entry_date"] = @current_date
+        # new_params["entry_date"] = @current_date
         @entry = Entry.new(new_params)
         if @entry.save
-            redirect_to root_url
+            redirect_to root_url(date: @current_date)
         else
             render :new
         end
@@ -64,6 +77,10 @@ class EntriesController < ApplicationController
     end
  
     def entry_params
-        params.require(:entry).permit(:title, :description, :mood, :sleep_hrs, :steps, :protein, :carbs, :fats)
+        params.require(:entry).permit(:entry_date, :description, :mood, :sleep_hrs, :steps, :protein, :carbs, :fats)
+    end
+
+    def update_entry_params
+        params.require(:entry).permit(:description, :mood, :sleep_hrs, :steps, :protein, :carbs, :fats)
     end
 end

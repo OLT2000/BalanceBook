@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'entries#index'
   
-  resources :entries, only: [:create, :new, :destroy]
+  resources :entries, only: [:create, :new, :destroy, :update, :edit]
 
   post 'shift_date_left', to: 'entries#shift_date_left'
   post 'shift_date_right', to: 'entries#shift_date_right'
