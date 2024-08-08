@@ -20,7 +20,8 @@
     </div>
 </nav>
 <div>
- <% @entries.each do |entry| %>
+ <% @entries.each_with_index do |entry, idx| %>
+   <%= pie_chart @nutrition_data[idx], legend: true %>%
    <div class="container">
       <div class="row">
         <%= entry_form(entry) %>

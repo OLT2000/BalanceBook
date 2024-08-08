@@ -5,6 +5,18 @@ class EntriesController < ApplicationController
         if user_signed_in?
             puts "Index Date #{@current_date}"
             @entries = Entry.where(user_id: current_user.id, entry_date: @current_date)
+            @nutrition_data = []
+            @entries.each do |ent|
+                puts ent.calories_in # = 56
+                nutrition = {
+                    'Protein' => (4.0 * ent.protein),
+                    'Fat' => (9.0 * ent.fats),
+                    'Carbs' => (4.0 * ent.carbs)
+                }
+                puts nutrition # = {"Protein"=>0, "Fat"=>0, "Carbs"=>0}
+
+                @nutrition_data << nutrition
+            end
         else
             redirect_to user_session_path, alert: "You must be signed in to do that!"
         end
@@ -42,7 +54,7 @@ class EntriesController < ApplicationController
 
     def destroy
         Entry.find(params[:id]).destroy
-        render root_path
+        redirect_to root_path
     end
  
     private
