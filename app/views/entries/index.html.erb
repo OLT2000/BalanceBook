@@ -19,6 +19,8 @@
         </div>
     </div>
 </nav>
+
+<%= line_chart User.group_by_day(:created_at).count %>
 <div>
  <% @entries.each do |entry| %>
    <div class="container">
