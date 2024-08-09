@@ -94,7 +94,7 @@ class EntriesController < ApplicationController
         if @entry.save
             redirect_to root_url(date: @current_date)
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
