@@ -21,6 +21,8 @@ gem 'http'
 
 gem 'dotenv-rails'
 
+gem 'faker'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 

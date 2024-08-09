@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'shift_date_right', to: 'entries#shift_date_right'
   post 'submit_api_call', to: 'entries#submit_api_call'
 
+  get 'report', to: 'reports#show'
 
   # Defines the root path route ("/")
   # root "posts#index"
