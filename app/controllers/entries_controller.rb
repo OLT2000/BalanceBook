@@ -79,7 +79,7 @@ class EntriesController < ApplicationController
         if user_signed_in?
             @entry = Entry.new()
         else
-            redirect_to sign_in_path, alert: "You must be signed in to do that!"
+            redirect_to new_user_session_path, alert: "You must be signed in to do that!"
         end
     end
  
