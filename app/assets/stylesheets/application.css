@@ -35,6 +35,162 @@
 .nav-item {
     color: #C9E465;
 }
+/* If using SCSS, you can use .scss syntax, otherwise use .css */
+.filter-form {
+    display: flex;
+    flex-direction: column; /* Arrange rows vertically */
+    gap: 15px; /* Space between rows */
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 15px; /* Space between form fields */
+  }
+  
+  .filter-row .form-group {
+    flex: 1;
+    min-width: 150px; /* Adjust the minimum width for each field */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-form .btn {
+    align-self: flex-start; /* Align button to the start */
+    margin-top: 1rem; /* Space above the button */
+  }
+  
+/* Display Entry */
+.card {
+    background-color: #ffffff36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.card p, .card h2 {
+    margin: 0;
+}
+.card p {
+    font-size: 30px;
+}
+.card h2 {
+    font-size: 30px;
+}
+
+.small-cards-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 50px;
+    width: 80%;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.small-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 0px;
+    width: 80%;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.left, .right, .middle {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.middle {
+    grid-row: span 3; /* Make the middle column span all three rows */
+    display: flex; /* Use Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+.column-content {
+    padding: 10px;
+    text-align: center; /* Center text inside the column-content */
+}
+.figure {
+    width: 100%; /* Make figure take up full width of the middle column */
+    max-width: 400px; /* Set a max-width for the chart */
+}
+
+/* Button Card Styles */
+.buttons-card {
+    position: relative;
+    background-color: #ffffff36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    height: 7rem
+}
+
+.api-card {
+    position: relative;
+    background-color: #ffffff36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #000000; /* Blue text color */
+    background-color: #C9E465; /* White background */
+    text-decoration: none;
+    border: 2px solid #000000; /* Blue border */
+    border-radius: 5px;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px;
+    color: #007bff; /* Blue text color */
+    background-color: #fff; /* White background */
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+.link-button:hover {
+background-color: #007bff; /* Blue background on hover */
+color: #fff; /* White text color on hover */
+}
+
+.btn-25 {
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+.btn-75 {
+    left: 75%;
+    transform: translateX(-50%);
+}
 
 /* sign in FORM */
 #logreg-forms{

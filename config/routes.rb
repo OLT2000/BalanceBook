@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   root 'entries#index'
   
-  resources :entries, only: [:create, :new, :destroy]
+  resources :entries, only: [:create, :new, :destroy, :update, :edit]
 
   post 'shift_date_left', to: 'entries#shift_date_left'
   post 'shift_date_right', to: 'entries#shift_date_right'
+  post 'submit_api_call', to: 'entries#submit_api_call'
 
+  get 'report', to: 'reports#show'
 
   # Defines the root path route ("/")
   # root "posts#index"

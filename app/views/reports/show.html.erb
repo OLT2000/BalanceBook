@@ -1,0 +1,66 @@
+<h1 class="mt-2" style="text-align: center">Health and Mood Report</h1>
+
+<div class="card">
+    <!-- Filter Form -->
+<%= form_with url: report_path, method: :get, local: true, html: { class: 'filter-form' } do |form| %>
+  <div class="filter-form">
+    <div class="filter-row">
+        <div class="form-group">
+            <%= form.label :start_date, 'Start Date' %>
+            <%= form.date_field :start_date, value: params[:start_date] %>
+        </div>
+
+        <div class="form-group">
+            <%= form.label :min_mood, 'Minimum Mood' %>
+            <%= form.select :min_mood, 0..10, value: params[:min_mood] %>
+        </div>
+        <div class="form-group">
+            <%= form.label :min_sleep, 'Minimum Sleep Hours' %>
+            <%= form.number_field :min_sleep, step: 0.1, value: params[:min_sleep] %>
+        </div>
+
+    </div>
+
+    <div class="filter-row">
+        <div class="form-group">
+            <%= form.label :end_date, 'End Date' %>
+            <%= form.date_field :end_date, value: params[:end_date] %>
+        </div>
+        <div class="form-group">
+            <%= form.label :max_mood, 'Maximum Mood' %>
+            <%= form.select :max_mood, 0..10, value: params[:max_mood] %>
+        </div>
+        <div class="form-group">
+            <%= form.label :max_sleep, 'Maximum Sleep Hours' %>
+            <%= form.number_field :max_sleep, step: 0.1, value: params[:max_sleep] %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit 'Apply Filters', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<div class="card">
+    <h2 style="text-align: center">Mood Over Time</h2>
+    <%= line_chart @mood_data, xtitle: 'Date', ytitle: 'Mood', library: { responsive: true } %>
+    <br>
+    <h2 style="text-align: center">Calories Over Time</h2>
+    <%= line_chart @calorie_data, xtitle: 'Date', ytitle: 'Calories', library: { responsive: true } %>
+</div>
+
+<div class="card">
+    <h2>Mood Summary</h2>
+    <p>Average Mood: <%= @mood_summary[:average_mood].round(2) %></p>
+    <p>Highest Mood: <%= @mood_summary[:mood_high] %></p>
+    <p>Lowest Mood: <%= @mood_summary[:mood_low] %></p>
+
+    <h2>Health Summary</h2>
+    <p>Average Sleep Hours: <%= @health_summary[:average_sleep_hrs].round(2) %></p>
+    <p>Total Steps: <%= @health_summary[:total_steps] %></p>
+    <p>Average Protein Intake: <%= @health_summary[:average_protein].round(2) %> grams</p>
+    <p>Average Carbohydrate Intake: <%= @health_summary[:average_carbs].round(2) %> grams</p>
+    <p>Average Fat Intake: <%= @health_summary[:average_fats].round(2) %> grams</p>
+</div>

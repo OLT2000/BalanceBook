@@ -19,7 +19,7 @@ module EntriesHelper
             concat form.number_field(:sleep_hrs, max: 24, class: "form-control border-primary mb-1")
         
             concat form.label(:steps, "Enter your daily steps...")
-            concat form.number_field(:steps, max: 100000, class: "form-control border-primary mb-1")
+            concat form.number_field(:steps, class: "form-control border-primary mb-1")
         
             concat form.label(:protein, "Enter your protein in grams...")
             concat form.number_field(:protein, class: "form-control border-primary mb-1")

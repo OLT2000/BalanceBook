@@ -1,7 +1,21 @@
-<%= form_with(model: @entry) do |form| %>
+</br>
+<h1 style="text-align: center">Update your entry for <%= @current_date %></h2>
+<div class="card">
+    <%= form_with(model: @entry, url: entry_path(@entry, date: @current_date)) do |form| %>
+    <% if @entry.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+        <ul>
+            <% @entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
     <h3 class="text-lg font-semibold mb-2" style="text-align: center">How are you feeling?</h3>
-    <%= form.text_field :title, class: "form-control border-primary mb-1", required: true, placeholder: "Enter title..." %>
-    <%= form.text_field :description, class: "form-control border-primary mb-1", required: true, placeholder: "Enter description..." %>
+
+    <%= form.label :description, "How was your day?" %>
+    <%= form.text_area :description, class: "form-control border-primary mb-1", required: true, placeholder: "Enter description..." %>
 
     <%= form.label :mood, "Rate your mood between 0 and 10"%>
     <%= form.select :mood, 0..10, class: "form-control border-primary mb-1"%>
@@ -25,3 +39,5 @@
 
     <%= form.submit %>
 <% end %>
+</div>
+

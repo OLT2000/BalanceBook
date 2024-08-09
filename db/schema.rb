@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_07_092834) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_09_162503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entries", force: :cascade do |t|
-    t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,6 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_07_092834) do
     t.virtual "calories_in", type: :integer, as: "(((4 * protein) + (4 * carbs)) + (9 * fats))", stored: true
     t.bigint "user_id", null: false
     t.date "entry_date"
+    t.index ["user_id", "entry_date"], name: "index_entries_on_user_id_and_entry_date", unique: true
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
