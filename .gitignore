@@ -39,3 +39,5 @@
 .DS_Store
 .DS_Store
 .DS_Store
+coverage/.resultset.json
+coverage/index.html
