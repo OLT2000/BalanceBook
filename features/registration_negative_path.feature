@@ -56,7 +56,7 @@ Feature: Negative Test Cases When Filling Out Sign Up Form
         Given I visit the page url 'https://mysite-gize.onrender.com/users/sign_up'
         And I input 'Ollie' for 'first_name' in my 'user' model
         And I input 'Thurston' for 'last_name' in my 'user' model
-        And I input 'ollienewtest3@email.com' for 'email' in my 'user' model
+        And I input 'ollienewtest8@email.com' for 'email' in my 'user' model
         And I input 'Password123?' for 'password' in my 'user' model
         And I input 'Password123?' for 'password_confirmation' in my 'user' model
         When I click the 'Create Account' button
@@ -118,4 +118,4 @@ Feature: Negative Test Cases When Filling Out Sign Up Form
         And I input 'Password1' for 'password_confirmation' in my 'user' model
         When I click the 'Create Account' button
         Then I am redirected to the page url '/users/sign_up'
-        And I am given a user form explanation "Password must contain at least one special character.
+        And I am given a user form explanation "Password must contain at least one special character."
