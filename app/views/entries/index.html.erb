@@ -19,8 +19,6 @@
         </div>
     </div>
 </nav>
-
-<%= line_chart User.group_by_day(:created_at).count %>
 <div>
  <% @entries.each_with_index do |entry, idx| %>
    <%= pie_chart @nutrition_data[idx], legend: true %>%
