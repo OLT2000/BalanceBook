@@ -27,11 +27,7 @@ class EntriesController < ApplicationController
         @response = call_openai_api(llm_prompt)
 
         # Store the response in the session hash with the entry ID as the key
-        session[:api_responses] = {"id" => params[:entry], "response" => @response}
-        puts session[:api_responses]
-
-        # flash[:response] = @response
-        
+        session[:api_responses] = {"id" => params[:entry], "response" => @response}        
         
         redirect_to root_path
     end
