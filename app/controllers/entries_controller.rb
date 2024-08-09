@@ -5,7 +5,6 @@ class EntriesController < ApplicationController
 
     def submit_api_call
         # user_input = params[:user_input]
-        puts "SUBMITTING CALL: #{params}"
         selected_entry = Entry.find_by(id: params[:entry])
 
         protein_ratio = ((4.0 * selected_entry.protein) / selected_entry.calories_in).round(2) * 100
@@ -57,7 +56,6 @@ class EntriesController < ApplicationController
     end
 
     def update
-        puts "Params : #{params}"
         @entry = Entry.find(params[:id])
         @current_date = params[:date]
         if @entry.update(update_entry_params)

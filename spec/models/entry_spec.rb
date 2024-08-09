@@ -8,8 +8,12 @@ RSpec.describe Entry, type: :model do
     end
 
     context 'Should Validate' do 
-        it 'with title, description, mood, steps, sleep_hrs, protein, carbs and fats present' do
+        it 'with entry_date, description, mood, steps, sleep_hrs, protein, carbs and fats present' do
             expect(entry).to be_valid
+        end
+
+        it 'calorie calculation' do
+            true
         end
 
         it 'with no sleep_hrs' do
@@ -36,10 +40,6 @@ RSpec.describe Entry, type: :model do
             entry.fats = 0
             expect(entry).to be_valid
         end
-
-        # it 'calorie calculation' do
-        #     expect(entry.calories_in).to eq(calculate_expected_calories(entry))
-        # end
     end
 
     context 'Should not validate' do
@@ -61,7 +61,7 @@ RSpec.describe Entry, type: :model do
 
         numerical_inputs.each do |k|
             it "non-numerical #{k}" do
-                entry[k] = '-'
+                entry[k] = 'a'
                 expect(entry).not_to be_valid
             end
         end

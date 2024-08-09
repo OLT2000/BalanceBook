@@ -1,6 +1,5 @@
 FactoryBot.define do
     factory :entry do
-        title { 'Entry #1 '}
         description { 'Some description of my day' }
         mood { 5 }
         sleep_hrs { 10 }
