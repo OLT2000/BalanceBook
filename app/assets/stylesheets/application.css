@@ -35,7 +35,30 @@
 .nav-item {
     color: #C9E465;
 }
-
+/* If using SCSS, you can use .scss syntax, otherwise use .css */
+.filter-form {
+    display: flex;
+    flex-direction: column; /* Arrange rows vertically */
+    gap: 15px; /* Space between rows */
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 15px; /* Space between form fields */
+  }
+  
+  .filter-row .form-group {
+    flex: 1;
+    min-width: 150px; /* Adjust the minimum width for each field */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-form .btn {
+    align-self: flex-start; /* Align button to the start */
+    margin-top: 1rem; /* Space above the button */
+  }
+  
 /* Display Entry */
 .card {
     background-color: #ffffff36;
