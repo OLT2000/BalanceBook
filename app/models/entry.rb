@@ -3,6 +3,9 @@ class Entry < ApplicationRecord
     
     validate :validate_all_non_negative
     validates :sleep_hrs, numericality: { less_than_or_equal_to: 24 }
+
+    validates :entry_date, uniqueness: { scope: :user_id, message: "should be unique per user. Please edit it instead" }
+
     
     def validate_non_negative(field)
         fieldvalue = send(field)
