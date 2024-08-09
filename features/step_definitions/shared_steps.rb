@@ -11,10 +11,12 @@ end
 
 When("I click the {string} button") do |button_text|
     click_button(button_text)
+    sleep 10
 end
 
 When("I click the link for path: {string}") do |path_str|
-    find("a.nav-link[href='#{path_str}']").click
+    find("a[href='#{path_str}']").click
+    sleep 5
 end
 
 And("I am given an alert: {string}") do |alert_msg|
