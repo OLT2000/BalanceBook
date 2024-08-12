@@ -1,22 +1,19 @@
 Given("I visit the page url {string}") do |url_string|
     reset_session!
     visit url_string
-    sleep 1
+    sleep 3
 end
 
 Then("I am redirected to the page url {string}") do |url_string|
-    sleep 3
     expect(page).to have_current_path(url_string)
 end
 
 When("I click the {string} button") do |button_text|
     click_button(button_text)
-    sleep 10
 end
 
 When("I click the link for path: {string}") do |path_str|
     find("a[href='#{path_str}']").click
-    sleep 5
 end
 
 And("I am given an alert: {string}") do |alert_msg|
