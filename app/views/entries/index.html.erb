@@ -34,7 +34,7 @@
             <div class="column-content figure">
                 <h2 style="font-size: 30px;">Macronutrient Breakdown (kCal)</h4>
                 </br>
-                <p><%= pie_chart @nutrition_data, legend: true, height: '400px', width: '100%' %></p>
+                <img aria-labelledby=<%=@nutrition_data%> ><%= pie_chart @nutrition_data, legend: true, height: '400px', width: '100%'%></img>
             </div>
         </div>
         <div class="right">

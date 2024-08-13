@@ -15,6 +15,11 @@
  */
  @import "bootstrap";
 
+  :focus {
+    padding: 10px;
+    border-bottom: 2px solid #000000;
+  }
+
  body {
     background-color: #fefdfc;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -40,6 +45,7 @@
     font-size: 16px;
     cursor: pointer;
 }
+
 
 .date-button {
     width: 258px;
@@ -236,7 +242,7 @@ background-color: #ffffff; /* Blue background on hover */
 color: #fff; /* White text color on hover */
 }
 
-button:hover {
+button:hover{
     color: #ffffff;
     background-color: #000000;
 }
@@ -260,6 +266,21 @@ button:hover {
 }
 
 .btn-75:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+button:focus{
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.btn-50:focus{
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.btn-75:focus{
     color: #ffffff;
     background-color: #000000;
 }

@@ -17,16 +17,20 @@
   <body>
   
     <%= render "shared/navbar" %>
-    <% unless alert.nil? %>
-      <div class="alert alert-danger", style="text-align: center; width: auto; margin-left: 25%; margin-right: 25%; margin-top: 20px; margin-bottom: 10px">
-          <%= alert %>
-      </div>
-    <% end %>
-    <% unless notice.nil? %>
-      <div class="alert alert-success", style="text-align: center; width: auto; margin-left: 25%; margin-right: 25%; margin-top: 20px; margin-bottom: 10px">
-          <%= notice %>
-      </div>
-    <% end %>
-    <%= yield %>
+    <div role="alert">
+      <% unless alert.nil? %>
+        <div class="alert alert-danger", style="text-align: center; width: auto; margin-left: 25%; margin-right: 25%; margin-top: 20px; margin-bottom: 10px">
+            <%= alert %>
+        </div>
+      <% end %>
+      <% unless notice.nil? %>
+        <div class="alert alert-success", style="text-align: center; width: auto; margin-left: 25%; margin-right: 25%; margin-top: 20px; margin-bottom: 10px">
+            <%= notice %>
+        </div>
+      <% end %>
+    </div>
+    <main role="main">
+      <%= yield %>
+    </main>
   </body>
 </html>
