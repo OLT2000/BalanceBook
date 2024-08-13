@@ -28,7 +28,8 @@ class EntriesController < ApplicationController
         # Store the response in the session hash with the entry ID as the key
         session[:api_responses] = {"id" => params[:entry], "response" => @response}        
         
-        redirect_to root_path
+        @current_date = params[:date]
+        redirect_to root_path(date: @current_date)
     end
 
     def index

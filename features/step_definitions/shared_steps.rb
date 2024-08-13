@@ -12,6 +12,10 @@ When("I click the {string} button") do |button_text|
     click_button(button_text)
 end
 
+And("I click the link for text: {string}") do |path_str|
+    click(path_strr)
+end
+
 When("I click the link for path: {string}") do |path_str|
     find("a[href='#{path_str}']").click
 end

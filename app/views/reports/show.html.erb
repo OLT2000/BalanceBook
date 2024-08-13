@@ -73,7 +73,9 @@
         </div>
         <div class="card chart-card-rpt">
             <h2 style="text-align: center">Mood Over Time</h2>
-            <%= line_chart @mood_data, xtitle: 'Date', ytitle: 'Mood', library: { responsive: true } %>
+            <div role="img" aria-label="<%= generate_line_chart_desc('mood') %>">
+                <%= line_chart @mood_data, xtitle: 'Date', ytitle: 'Mood', height: '200px', width: '95%', library: { responsive: true } %>
+            </div>       
         </div>
     </div>
 
@@ -101,7 +103,9 @@
         </div>
         <div class="card chart-card-rpt">
             <h2 style="text-align: center">Calories Over Time</h2>
-            <%= line_chart @calorie_data, xtitle: 'Date', ytitle: 'Calories', library: { responsive: true } %>
+            <div role="img" aria-label="<%= generate_line_chart_desc('calorie intake') %>">
+                <%= line_chart @calorie_data, xtitle: 'Date', ytitle: 'Calories', height: '200px', width: '95%', library: { responsive: true } %>
+            </div>            
         </div>
     </div>
 </div>
