@@ -52,4 +52,9 @@ module EntriesHelper
         # Replace the day number with the day number + suffix
         formatted_date.sub(/\d{2}/, "#{day}#{suffix}")
       end
-end
+
+      def generate_pie_chart_desc(nutrition_data)
+        "This Pie Chart displays your macronutrient breakdown for the day. You consumed #{nutrition_data['Protein']}, #{nutrition_data['Carbs']} and #{nutrition_data['Fat']} calories worth of proteins, carbs and fats, respectively."
+
+      end
+  end

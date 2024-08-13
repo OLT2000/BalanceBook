@@ -15,7 +15,7 @@
   </head>
 
   <body>
-  
+    <a class="skip-link" href='#main-content'>Skip To Main Content</a>
     <%= render "shared/navbar" %>
     <div role="alert">
       <% unless alert.nil? %>
@@ -29,7 +29,7 @@
         </div>
       <% end %>
     </div>
-    <main role="main">
+    <main role="main" id="main-content">
       <%= yield %>
     </main>
   </body>
