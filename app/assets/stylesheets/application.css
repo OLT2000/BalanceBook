@@ -16,7 +16,7 @@
  @import "bootstrap";
 
  body {
-    background-color: #5EAB84;
+    background-color: #fefdfc;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
@@ -25,14 +25,58 @@
     margin-right: 6px;
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
 
+.button1 {
+    width: 150px;
+    padding: 10px 60px;
+    background-color: #2f6a31;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.date-button {
+    width: 258px;
+    text-align: center;
+
+}
+
+.button1:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.button3 {
+    width: 150px;
+    padding: 10px 60px;
+    background-color: #2f6a31;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.button1:not(:last-child) {
+    border-right: 1px solid white;
+}
 
 .navbar {
-    background-color: #2A2C28;
+    background-color: #ffffff;
+    border-bottom: 10px;
+    border-color: #000000;
+    border-bottom-width: 10rem;
 }
 
 .nav-link {
-    color: #C9E465;
+    color: #000000;
 }
 
 .nav-link:hover {
@@ -40,7 +84,7 @@
 }
 
 .nav-item {
-    color: #C9E465;
+    color: #000000;
 }
 /* If using SCSS, you can use .scss syntax, otherwise use .css */
 .filter-form {
@@ -162,12 +206,14 @@
 .button {
     position: absolute;
     padding: 10px 20px;
+    width: 150px;
     font-size: 20px;
     color: #000000; /* Blue text color */
     background-color: #ffffff00; /* White background */
     text-decoration: none;
     border: 2px solid #000000; /* Blue border */
     border-radius: 5px;
+    text-align: center;
 }
 
 .link-button {
@@ -196,6 +242,12 @@ button:hover {
 
 .btn-25 {
     left: 25%;
+    transform: translateX(-50%);
+    background-color: #ffffff00;
+}
+
+.btn-50 {
+    left: 50%;
     transform: translateX(-50%);
     background-color: #ffffff00;
 }
