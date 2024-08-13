@@ -35,6 +35,10 @@
     color: #C9E465;
 }
 
+.nav-link:hover {
+    color: #7f85fa;
+}
+
 .nav-item {
     color: #C9E465;
 }
@@ -160,7 +164,7 @@
     padding: 10px 20px;
     font-size: 20px;
     color: #000000; /* Blue text color */
-    background-color: #C9E465; /* White background */
+    background-color: #ffffff00; /* White background */
     text-decoration: none;
     border: 2px solid #000000; /* Blue border */
     border-radius: 5px;
@@ -181,18 +185,30 @@
   }
   
 .link-button:hover {
-background-color: #007bff; /* Blue background on hover */
+background-color: #ffffff; /* Blue background on hover */
 color: #fff; /* White text color on hover */
+}
+
+button:hover {
+    color: #ffffff;
+    background-color: #000000;
 }
 
 .btn-25 {
     left: 25%;
     transform: translateX(-50%);
+    background-color: #ffffff00;
 }
 
 .btn-75 {
     left: 75%;
     transform: translateX(-50%);
+    background-color: #ffffff00;
+}
+
+.btn-75:hover {
+    color: #ffffff;
+    background-color: #000000;
 }
 
 /* sign in FORM */
@@ -304,3 +320,35 @@ color: #fff; /* White text color on hover */
     }
     
 }
+
+
+/* General styling for form elements */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light border */
+  padding: 10px; /* Space inside the field */
+  font-size: 16px; /* Font size */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border and shadow */
+}
+
+/* Focus state for form elements */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #942edc; /* Blue border on focus */
+  box-shadow: 0 0 100x rgba(0, 123, 255); /* Shadow effect on focus */
+  outline: none; /* Remove default outline */
+}
+
