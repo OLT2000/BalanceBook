@@ -230,6 +230,7 @@
     transition: background-color 0.3s, color 0.3s;
   }
   
+  
 .link-button:hover {
 background-color: #ffffff; /* Blue background on hover */
 color: #fff; /* White text color on hover */
@@ -404,3 +405,162 @@ select:focus {
   outline: none; /* Remove default outline */
 }
 
+
+.kpi-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.kpi-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.kpi-group {
+    margin-bottom: 20px;
+}
+
+.kpi-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.kpi-item:last-child {
+    border-bottom: none;
+}
+
+.kpi-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.kpi-value {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Optional: Responsive design */
+@media (max-width: 600px) {
+    .kpi-card {
+        padding: 15px;
+    }
+
+    .kpi-title {
+        font-size: 20px;
+    }
+
+    .kpi-value {
+        font-size: 16px;
+    }
+}
+
+
+/* General Styles */
+
+
+/* Filter Form */
+.filter-card-rpt {
+    width: 90%;
+    max-width: 1500px;
+}
+
+.filter-form-rpt {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-row-rpt {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group-rpt {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Buttons */
+.btn.btn-outline-dark-rpt {
+    width: 100%;
+}
+
+/* KPI and Chart Columns */
+.container-rpt {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 10px auto;
+    max-width: 1500px;
+    width: 90%;
+}
+
+.column-rpt {
+    flex: 1;
+    min-width: 46%;
+}
+
+.kpi-card-rpt, .chart-card-rpt {
+    margin-bottom: 20px;
+    height: 18rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-rpt {
+        flex-direction: column;
+    }
+
+    .column-rpt {
+        min-width: 100%;
+    }
+}
+
+.kpi-title-rpt {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.kpi-group-rpt {
+    margin-bottom: 20px;
+}
+
+.kpi-item-rpt {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.kpi-item-rpt:last-child {
+    border-bottom: none;
+}
+
+.kpi-label-rpt {
+    font-weight: bold;
+    color: #555;
+}
+
+.kpi-value-rpt {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Chart Styling */
+.chart-card-rpt {
+    padding: 0;
+}
+
+.chart-card-rpt h2 {
+    margin-bottom: 20px;
+}
