@@ -1,27 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav", style="font-size: 40px;">
-                <%= button_to "<", shift_date_left_path(date: @current_date), class: "nav-link" %>
-            </ul>
-            <ul class="navbar-nav mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-                <li class="nav-item", style="font-size: 40px;">
-                    <h1>
-                        <% if @current_date == Date.today %>
-                            <%= "Today" %>
-                        <% else %>
-                            <%= @current_date %>
-                        <% end %>
-                    </h1>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto", style="font-size: 40px;">
-                <%= button_to ">", shift_date_right_path(date: @current_date), class: "nav-link" %>
-            </ul>
-        </div>
-    </div>
-</nav>
-</br>
+
+  <div class="button-group">
+    <%= button_to "Previous", shift_date_left_path(date: @current_date), class: "button1" %>
+    <span class="button1 date-button">
+        <% if @current_date == Date.today %>
+            <%= "Today" %>
+        <% else %>
+            <%= format_date_with_suffix(@current_date) %>
+        <% end %>
+    </span>
+    <%= button_to "Next", shift_date_right_path(date: @current_date), class: "button3" %>
+  </div>
 <% if @entry.nil? %>
     <div class="alert alert-success", style="text-align: center; width: auto; margin-left: 25%; margin-right: 25%; margin-top: 20px; margin-bottom: 10px">
         <p>
@@ -32,6 +20,11 @@
         </p>
     </div>
 <% else %>
+    <div class="card buttons-card">
+        <%= button_to 'Delete Entry', entry_path(@entry), method: :delete, class: "button btn-25" %>
+        <%= link_to "New Entry", new_entry_path(@entry, date: @current_date), class: "button btn-50" %>
+        <%= link_to 'Edit Entry', edit_entry_path(@entry, date: @current_date), method: :get, class: "button btn-75" %>
+    </div>
     <div class="card">
     <div class="container mt-10">
         <!-- Row 1 -->
@@ -80,8 +73,8 @@
         <%= @entry.description %>
     </p>
     </div>
-    <div class='api-card'>
-        <%= button_to 'Generate Summary', submit_api_call_path(entry: @entry), method: :post, class: "button"%>
+    <div class='card api-card'>
+        <%= button_to 'Generate Summary', submit_api_call_path(entry: @entry), method: :post, class: "button btn-50", style: "width:250px;"%>
         <br><br><br>
         <% if session[:api_responses]["id"] == @entry.id.to_s %>
             <% if !session[:api_responses]['response'].nil? %>
@@ -91,8 +84,5 @@
             <% end %>
         <% end %>
     </div>
-    <div class="card buttons-card">
-        <%= button_to 'Delete Entry', entry_path(@entry), method: :delete, class: "button btn-25" %>
-        <%= link_to 'Edit Entry', edit_entry_path(@entry, date: @current_date), method: :get, class: "button btn-75" %>
-    </div>
+
 <% end %>

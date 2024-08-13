@@ -1,3 +1,5 @@
+require 'date'
+
 module EntriesHelper
     def entry_form(entry)
         form_with(model: entry) do |form|
@@ -32,5 +34,22 @@ module EntriesHelper
         
             concat form.submit
         end
+      end
+
+      def format_date_with_suffix(date)
+        # Format the date to get day, month, and year
+        formatted_date = date.strftime('%a %d %b %Y')
+      
+        # Extract the day part and determine the suffix
+        day = date.day
+        suffix = case day
+                 when 1, 21, 31 then 'st'
+                 when 2, 22 then 'nd'
+                 when 3, 23 then 'rd'
+                 else 'th'
+                 end
+      
+        # Replace the day number with the day number + suffix
+        formatted_date.sub(/\d{2}/, "#{day}#{suffix}")
       end
 end
