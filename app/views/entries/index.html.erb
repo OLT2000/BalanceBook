@@ -32,7 +32,7 @@
         </div>
         <div class="middle">
             <div class="column-content figure">
-                <h2 style="font-size: 30px;">Macronutrient Breakdown (kCal)</h4>
+                <h2 style="font-size: 30px;">Macronutrient Breakdown (<%= @entry.calories_in%> kCal)</h4>
                 </br>
                 <% chart_description = generate_pie_chart_desc(@nutrition_data) %>
                 <div role="img" aria-label="<%= chart_description %>" id="nutrientpie-chart">
