@@ -31,7 +31,7 @@ def generate_unique_dates(start_date, end_date, count)
     )
   
     # Generate unique dates for the entries
-    unique_dates = generate_unique_dates(14.days.ago.to_date, Date.today, rand(10..20))
+    unique_dates = generate_unique_dates(28.days.ago.to_date, Date.today + 4.days, rand(25..32))
   
     # Create entries for the user
     unique_dates.each do |date|

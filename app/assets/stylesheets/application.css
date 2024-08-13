@@ -270,6 +270,11 @@ button:hover{
     background-color: #000000;
 }
 
+.btn-50:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
 button:focus{
     color: #ffffff;
     background-color: #000000;

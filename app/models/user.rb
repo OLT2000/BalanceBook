@@ -21,6 +21,11 @@ class User < ApplicationRecord
 
     validates :email, format: { with: Devise.email_regexp }
 
+    alias :orig_valid_password? :valid_password?
+    def valid_password?(password)
+        orig_valid_password?(password.strip)
+    end
+
     private
 
     def passwords_match
