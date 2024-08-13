@@ -73,7 +73,7 @@
         <%= @entry.description %>
     </p>
     </div>
-    <div class='api-card'>
+    <div class='card api-card'>
         <%= button_to 'Generate Summary', submit_api_call_path(entry: @entry), method: :post, class: "button btn-50", style: "width:250px;"%>
         <br><br><br>
         <% if session[:api_responses]["id"] == @entry.id.to_s %>
