@@ -3,6 +3,11 @@ class ReportsController < ApplicationController
   
     def show
       @user = current_user
+
+      params[:max_mood] = params.fetch(:max_mood, 10).presence || 10
+      params[:min_mood] = params.fetch(:min_mood, 0).presence || 0
+      params[:max_sleep] = params.fetch(:max_sleep, 24).presence || 8
+      params[:min_sleep] = params.fetch(:min_sleep, 0).presence || 0
   
       # Apply filters
       @entries = @user.entries
