@@ -20,6 +20,7 @@ class ReportsController < ApplicationController
       # Data for Chartkick
       @mood_data = @entries.order(:entry_date).pluck(:entry_date, :mood)
       @calorie_data = @entries.order(:entry_date).pluck(:entry_date, :calories_in)
+
     end
   
     private

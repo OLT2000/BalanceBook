@@ -1,7 +1,7 @@
 Feature: Successful logging out feature
     Scenario: User is logged in successfully with existing credentials, and then logs out
         Given I visit the page url 'http://localhost:3000/users/sign_in'
-        And I input 'ollienewtest2@email.com' for 'email' in my 'user' model
+        And I input 'ollienewtest3@email.com' for 'email' in my 'user' model
         And I input 'Password123?' for 'password' in my 'user' model
         And I click the 'Log in' button
         And I am redirected to the page url '/'

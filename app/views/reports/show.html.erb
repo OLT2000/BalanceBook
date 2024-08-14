@@ -12,7 +12,7 @@
 
             <div class="form-group-rpt">
                 <%= form.label :min_mood, 'Minimum Mood' %>
-                <%= form.select :min_mood, 0..10, value: params[:min_mood] %>
+                <%= form.select :min_mood, options_for_select(0..10, params[:min_mood]) %>
             </div>
             <div class="form-group-rpt">
                 <%= form.label :min_sleep, 'Minimum Sleep Hours' %>
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group-rpt">
                 <%= form.label :max_mood, 'Maximum Mood' %>
-                <%= form.select :max_mood, 0..10, value: params[:max_mood] %>
+                <%= form.select :max_mood, options_for_select(0..10, params[:max_mood]) %>
             </div>
             <div class="form-group-rpt">
                 <%= form.label :max_sleep, 'Maximum Sleep Hours' %>
